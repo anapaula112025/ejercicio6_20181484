@@ -1,8 +1,9 @@
 package com.example.demo6.Controller;
-import com.example.laboratorio4.entity.Employees;
-import com.example.laboratorio4.repository.DepartmentsRepository;
-import com.example.laboratorio4.repository.EmployeesRepository;
-import com.example.laboratorio4.repository.JobsRepository;
+
+import com.example.demo6.entity.Employees;
+import com.example.demo6.repository.DepartmentsRepository;
+import com.example.demo6.repository.EmployeesRepository;
+import com.example.demo6.repository.JobsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.jws.WebParam;
-import javax.validation.Valid;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,7 +57,7 @@ public class EmployeeController {
 
             if (employees.getEmployeeid() == 0) {
                 attr.addFlashAttribute("msg", "Empleado creado exitosamente");
-                employees.setHiredate(new Date());
+                employees.setHire_date(new Date());
                 employeesRepository.save(employees);
                 return "redirect:/employee";
             } else {
